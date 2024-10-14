@@ -12,18 +12,28 @@
   
   <script setup>
   import { ref } from 'vue'
+  import { useNuxtApp } from '#app'
+  import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
   
   const email = ref('')
   const password = ref('')
   const isLogin = ref(true)
   
-  const handleSubmit = () => {
-    if (isLogin.value) {
-      // Логика для входа
-      console.log('Login:', email.value, password.value)
-    } else {
-      // Логика для регистрации
-      console.log('Register:', email.value, password.value)
+  const { $firebaseAuth } = useNuxtApp()
+  
+  const handleSubmit = async () => {
+    try {
+      if (isLogin.value) {
+        // Логика для входа
+        const userCredential = await signInWithEmailAndPassword($firebaseAuth, email.value, password.value)
+        console.log('User signed in:', userCredential.user)
+      } else {
+        // Логика для регистрации
+        const userCredential = await createUserWithEmailAndPassword($firebaseAuth, email.value, password.value)
+        console.log('User registered:', userCredential.user)
+      }
+    } catch (error) {
+      console.error('Error:', error.message)
     }
   }
   

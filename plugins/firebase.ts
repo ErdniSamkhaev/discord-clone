@@ -1,20 +1,21 @@
-import { defineNuxtPlugin } from '#app'
-import { initializeApp } from 'firebase/app'
+import { defineNuxtPlugin } from "#app";
+import { initializeApp } from "firebase/app";
 
 export default defineNuxtPlugin(() => {
   const firebaseConfig = {
-    apiKey: 'YOUR_API_KEY',
-    authDomain: 'YOUR_AUTH_DOMAIN',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_STORAGE_BUCKET',
-    messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-    appId: 'YOUR_APP_ID',
-  }
+    apiKey: "AIzaSyChwYZkupUodYCVEaocZf6o1LW806y-ooQ",
+    authDomain: "discord-clone-7cf17.firebaseapp.com",
+    projectId: "discord-clone-7cf17",
+    storageBucket: "discord-clone-7cf17.appspot.com",
+    messagingSenderId: "482833395030",
+    appId: "1:482833395030:web:ab5aef46b60078d36b7af7",
+    measurementId: "G-B5WDV14XY1",
+  };
 
-  const app = initializeApp(firebaseConfig)
+  const app = initializeApp(firebaseConfig);
   return {
     provide: {
       firebase: app,
     },
-  }
-})
+  };
+});

@@ -1,4 +1,5 @@
 <template>
+    <NuxtPage />
     <div class="login-page">
       <AuthForm />
     </div>
