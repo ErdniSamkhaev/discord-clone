@@ -29,7 +29,7 @@
         class="text-center text-blue-500 cursor-pointer hover:underline"
       >
         {{
-          isLogin ? "No account? Register" : "Already have an account? Login"
+          isLogin ? "Нет аккаунта? Зарегистрируйтесь" : "Уже есть аккаунт? Войти"
         }}
       </p>
     </form>
