@@ -1,10 +1,18 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
-export const useAuthStore = defineStore('auth', () => {
-  const user = ref(null)
+// Определяем тип данных пользователя
+interface User {
+  id: string
+  name: string
+  email: string
+}
 
-  const setUser = (userData) => {
+export const useAuthStore = defineStore('auth', () => {
+  // Типизируем ref для пользователя
+  const user = ref<User | null>(null)
+
+  const setUser = (userData: User) => {
     user.value = userData
   }
 
